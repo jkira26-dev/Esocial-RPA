@@ -391,13 +391,7 @@ class App(Tk):
         Label(r3, text="  (MM/AAAA)", bg=COR_BG_CARD,
               font=("Segoe UI", 8), fg="#aaa").pack(side="left")
 
-        row_opt = Frame(card, bg=COR_BG_CARD); row_opt.pack(fill="x", padx=12, pady=(2, 2))
-        self.var_fase = StringVar(value="ambas")
-        ttk.Radiobutton(row_opt, text="Fase 1 + 2", variable=self.var_fase, value="ambas").pack(side="left", padx=2)
-        ttk.Radiobutton(row_opt, text="Só Fase 1 (Solicitações)", variable=self.var_fase, value="fase1").pack(side="left", padx=2)
-        ttk.Radiobutton(row_opt, text="Só Fase 2 (Downloads)", variable=self.var_fase, value="fase2").pack(side="left", padx=2)
-
-        row_btn = Frame(card, bg=COR_BG_CARD); row_btn.pack(fill="x", padx=12, pady=(4, 10))
+        row_btn = Frame(card, bg=COR_BG_CARD); row_btn.pack(fill="x", padx=12, pady=(10, 10))
         ttk.Button(row_btn, text="+ Inserir na fila",
                    command=self._inserir_empresa).pack(side="left")
         ttk.Button(row_btn, text="Remover selecionado",
@@ -811,7 +805,7 @@ class App(Tk):
         nome  = self.entry_nome.get().strip() or formatar_cnpj(cnpj)
         inicio = self.entry_inicio.get().strip()
         fim    = self.entry_fim.get().strip()
-        fase   = self.var_fase.get()
+        fase   = "fase1"  # Aba 1 é exclusiva para Fase 1
 
         if not validar_cnpj(cnpj):
             messagebox.showwarning("CNPJ inválido", "Informe um CNPJ válido com 14 dígitos.")
@@ -1072,44 +1066,39 @@ class App(Tk):
 
                     progresso = rpa.carregar_progresso(cnpj)
 
-                    if fase in ("ambas", "fase1"):
-                        empresa["status"] = STATUS_FASE1
-                        self._msg_grid()
-                        ja = set(progresso.get("solicitacoes_criadas", []))
-                        data_inicio_str = f"01/{empresa['inicio']}"
-                        data_fim_str    = f"01/{empresa['fim']}"
-                        todos = rpa.gerar_meses(data_inicio_str, data_fim_str)
-                        pendentes_f1 = [d for d in todos if f"{d[0]}_{d[1]}" not in ja]
+                    empresa["status"] = STATUS_FASE1
+                    self._msg_grid()
+                    ja = set(progresso.get("solicitacoes_criadas", []))
+                    data_inicio_str = f"01/{empresa['inicio']}"
+                    data_fim_str    = f"01/{empresa['fim']}"
+                    todos = rpa.gerar_meses(data_inicio_str, data_fim_str)
+                    pendentes_f1 = [d for d in todos if f"{d[0]}_{d[1]}" not in ja]
 
-                        if not pendentes_f1 and fase == "ambas":
-                            self._log("  ✅ Todas as solicitações já existem — pulando para Fase 2", "ok")
-                            empresa["status"] = STATUS_PULADO
-                            self._msg_grid()
-                        else:
-                            await rpa.fase1_criar_solicitacoes(
-                                page, progresso, stats,
-                                playwright=playwright, callback=cb,
-                                cnpj=cnpj or None, data_inicio_override=data_inicio_str)
-
-                    if fase in ("ambas", "fase2"):
-                        empresa["status"] = "Verificando downloads..."
-                        self._msg_grid()
-                        self._log("  🔍 Verificando arquivos disponíveis...", "info")
-                        qtd = await rpa.verificar_downloads_disponiveis(page)
-                        self._log(f"  📦 {qtd} arquivo(s) disponível(is).", "info")
-
-                        if qtd == 0:
-                            self._log("  ℹ️ Nenhum arquivo disponível ainda.", "warn")
-                        else:
-                            empresa["status"] = STATUS_FASE2
-                            self._msg_grid()
-                            await rpa.fase2_baixar_xmls(
-                                page, progresso, stats, callback=cb, cnpj=cnpj)
+                    if not pendentes_f1:
+                        self._log("  ✅ Todas as solicitações já existem.", "ok")
+                    else:
+                        await rpa.fase1_criar_solicitacoes(
+                            page, progresso, stats,
+                            playwright=playwright, callback=cb,
+                            cnpj=cnpj or None, data_inicio_override=data_inicio_str)
 
                     empresa["status"] = STATUS_CONCLUIDO
                     self._msg_grid()
                     rpa.gerar_relatorio(stats)
-                    self._log(f"  ✅ {nome} concluído!", "ok")
+                    self._log(f"  ✅ Solicitações de {nome} concluídas!", "ok")
+                    
+                    self._log(f"  ➡️ Transferindo empresa para a fila de Downloads...", "info")
+                    empresa_dl = {
+                        "tipo": empresa.get("tipo", "proprio"),
+                        "cnpj": empresa.get("cnpj", ""),
+                        "nome": nome,
+                        "inicio": empresa.get("inicio", ""),
+                        "fim": empresa.get("fim", ""),
+                        "fase": "fase2",
+                        "status": STATUS_AGUARDANDO,
+                        "inserido_em": datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    }
+                    self.fila_msgs.put({"tipo": "mover_para_dl", "empresa_dl": empresa_dl})
 
                 except Exception as e:
                     empresa["status"] = STATUS_ERRO
@@ -1464,6 +1453,14 @@ class App(Tk):
                         self.log_lines_dl = self.log_lines_dl[-1500:]
                     if self.filtro_log_dl.get() in ("todos", nivel):
                         self._append_to_widget(self.txt_log_dl, txt, nivel)
+
+                elif tipo == "mover_para_dl":
+                    emp = msg.get("empresa_dl")
+                    if emp:
+                        if not any(e.get("cnpj") == emp.get("cnpj") for e in self.fila_dl):
+                            self.fila_dl.append(emp)
+                            salvar_fila_dl(self.fila_dl)
+                            self._atualizar_grid_dl()
 
                 elif tipo == "atualizar_grid":
                     self._atualizar_grid()

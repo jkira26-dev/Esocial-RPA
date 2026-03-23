@@ -1,0 +1,76 @@
+2026-03-23 17:16:19,120 [INFO] Conectando ao Chrome em http://localhost:9222 ...
+2026-03-23 17:16:19,566 [INFO] ✅ Conectado ao Chrome com sucesso!
+2026-03-23 17:16:19,601 [INFO] ✅ Aba do eSocial encontrada: https://www.esocial.gov.br/portal/Home/Inicial?tipoEmpregador=EMPREGADOR_GERAL
+2026-03-23 17:16:19,627 [INFO] ============================================================
+2026-03-23 17:16:19,628 [INFO]   FASE 1 — CRIANDO SOLICITAÇÕES MENSAIS
+2026-03-23 17:16:19,628 [INFO] ============================================================
+2026-03-23 17:16:20,108 [INFO] 📅 Data limite lida da tela: 22/03/2026
+2026-03-23 17:16:20,109 [INFO] Data de início: 01/01/2018
+2026-03-23 17:16:20,110 [INFO] Período selecionado: 01/01/2018 até 22/03/2026 (99 meses)
+2026-03-23 17:16:20,110 [INFO] Já solicitados anteriormente: 0
+2026-03-23 17:16:20,110 [INFO] Pendentes nesta execução: 99
+2026-03-23 17:16:20,110 [INFO]   📋 Criando solicitação: 01/01/2018 → 31/01/2018 (tentativa 1)
+2026-03-23 17:16:23,415 [INFO]   ⏭️ Já existe pedido para 01/01/2018 → 31/01/2018 — pulando.
+2026-03-23 17:16:23,416 [INFO]   📊 Pulados por já existirem: 1
+2026-03-23 17:16:27,424 [INFO]   📋 Criando solicitação: 01/02/2018 → 28/02/2018 (tentativa 1)
+2026-03-23 17:16:30,687 [INFO]   ⏭️ Já existe pedido para 01/02/2018 → 28/02/2018 — pulando.
+2026-03-23 17:16:30,688 [INFO]   📊 Pulados por já existirem: 2
+2026-03-23 17:16:34,699 [INFO]   📋 Criando solicitação: 01/03/2018 → 31/03/2018 (tentativa 1)
+2026-03-23 17:16:38,037 [INFO]   ⏭️ Já existe pedido para 01/03/2018 → 31/03/2018 — pulando.
+2026-03-23 17:16:38,038 [INFO]   📊 Pulados por já existirem: 3
+2026-03-23 17:16:42,049 [INFO]   📋 Criando solicitação: 01/04/2018 → 30/04/2018 (tentativa 1)
+2026-03-23 17:16:46,636 [INFO]   ⏭️ Já existe pedido para 01/04/2018 → 30/04/2018 — pulando.
+2026-03-23 17:16:46,638 [INFO]   📊 Pulados por já existirem: 4
+2026-03-23 17:16:50,653 [INFO]   📋 Criando solicitação: 01/05/2018 → 31/05/2018 (tentativa 1)
+2026-03-23 17:16:56,731 [INFO]   ⏭️ Já existe pedido para 01/05/2018 → 31/05/2018 — pulando.
+2026-03-23 17:16:56,732 [INFO]   📊 Pulados por já existirem: 5
+2026-03-23 17:17:00,746 [INFO]   📋 Criando solicitação: 01/06/2018 → 30/06/2018 (tentativa 1)
+2026-03-23 17:17:06,396 [INFO]   ⏭️ Já existe pedido para 01/06/2018 → 30/06/2018 — pulando.
+2026-03-23 17:17:06,397 [INFO]   📊 Pulados por já existirem: 6
+2026-03-23 17:17:10,401 [INFO]   📋 Criando solicitação: 01/07/2018 → 31/07/2018 (tentativa 1)
+2026-03-23 17:17:15,945 [INFO]   ⏭️ Já existe pedido para 01/07/2018 → 31/07/2018 — pulando.
+2026-03-23 17:17:15,946 [INFO]   📊 Pulados por já existirem: 7
+2026-03-23 17:17:19,955 [INFO]   📋 Criando solicitação: 01/08/2018 → 31/08/2018 (tentativa 1)
+2026-03-23 17:17:25,648 [INFO]   ⏭️ Já existe pedido para 01/08/2018 → 31/08/2018 — pulando.
+2026-03-23 17:17:25,649 [INFO]   📊 Pulados por já existirem: 8
+2026-03-23 17:17:29,656 [INFO]   📋 Criando solicitação: 01/09/2018 → 30/09/2018 (tentativa 1)
+2026-03-23 17:17:37,435 [INFO]   ⏭️ Já existe pedido para 01/09/2018 → 30/09/2018 — pulando.
+2026-03-23 17:17:37,436 [INFO]   📊 Pulados por já existirem: 9
+2026-03-23 17:17:41,445 [INFO]   📋 Criando solicitação: 01/10/2018 → 31/10/2018 (tentativa 1)
+2026-03-23 17:17:48,942 [INFO]   ⏭️ Já existe pedido para 01/10/2018 → 31/10/2018 — pulando.
+2026-03-23 17:17:48,944 [INFO]   📊 Pulados por já existirem: 10
+2026-03-23 17:17:52,950 [INFO]   📋 Criando solicitação: 01/11/2018 → 30/11/2018 (tentativa 1)
+2026-03-23 17:18:00,511 [INFO]   ⏭️ Já existe pedido para 01/11/2018 → 30/11/2018 — pulando.
+2026-03-23 17:18:00,512 [INFO]   📊 Pulados por já existirem: 11
+2026-03-23 17:18:04,523 [INFO]   📋 Criando solicitação: 01/12/2018 → 31/12/2018 (tentativa 1)
+2026-03-23 17:18:12,128 [INFO]   ⏭️ Já existe pedido para 01/12/2018 → 31/12/2018 — pulando.
+2026-03-23 17:18:12,129 [INFO]   📊 Pulados por já existirem: 12
+2026-03-23 17:18:16,133 [INFO]   📋 Criando solicitação: 01/01/2019 → 31/01/2019 (tentativa 1)
+2026-03-23 17:18:23,779 [INFO]   ⏭️ Já existe pedido para 01/01/2019 → 31/01/2019 — pulando.
+2026-03-23 17:18:23,780 [INFO]   📊 Pulados por já existirem: 13
+2026-03-23 17:18:27,786 [INFO]   📋 Criando solicitação: 01/02/2019 → 28/02/2019 (tentativa 1)
+2026-03-23 17:18:37,827 [INFO]   ⏭️ Já existe pedido para 01/02/2019 → 28/02/2019 — pulando.
+2026-03-23 17:18:37,829 [INFO]   📊 Pulados por já existirem: 14
+2026-03-23 17:18:41,835 [INFO]   📋 Criando solicitação: 01/03/2019 → 31/03/2019 (tentativa 1)
+2026-03-23 17:18:51,524 [INFO]   ⏭️ Já existe pedido para 01/03/2019 → 31/03/2019 — pulando.
+2026-03-23 17:18:51,525 [INFO]   📊 Pulados por já existirem: 15
+2026-03-23 17:18:55,541 [INFO]   📋 Criando solicitação: 01/04/2019 → 30/04/2019 (tentativa 1)
+2026-03-23 17:19:08,267 [INFO]   ⏭️ Já existe pedido para 01/04/2019 → 30/04/2019 — pulando.
+2026-03-23 17:19:08,269 [INFO]   📊 Pulados por já existirem: 16
+2026-03-23 17:19:12,282 [INFO]   📋 Criando solicitação: 01/05/2019 → 31/05/2019 (tentativa 1)
+2026-03-23 17:19:21,958 [INFO]   ⏭️ Já existe pedido para 01/05/2019 → 31/05/2019 — pulando.
+2026-03-23 17:19:21,960 [INFO]   📊 Pulados por já existirem: 17
+2026-03-23 17:19:25,968 [INFO]   📋 Criando solicitação: 01/06/2019 → 30/06/2019 (tentativa 1)
+2026-03-23 17:19:37,392 [INFO]   ⏭️ Já existe pedido para 01/06/2019 → 30/06/2019 — pulando.
+2026-03-23 17:19:37,394 [INFO]   📊 Pulados por já existirem: 18
+2026-03-23 17:19:41,401 [INFO]   📋 Criando solicitação: 01/07/2019 → 31/07/2019 (tentativa 1)
+2026-03-23 17:19:53,869 [INFO]   ⏭️ Já existe pedido para 01/07/2019 → 31/07/2019 — pulando.
+2026-03-23 17:19:53,870 [INFO]   📊 Pulados por já existirem: 19
+2026-03-23 17:19:57,878 [INFO]   📋 Criando solicitação: 01/08/2019 → 31/08/2019 (tentativa 1)
+2026-03-23 17:20:12,009 [INFO]   ⏭️ Já existe pedido para 01/08/2019 → 31/08/2019 — pulando.
+2026-03-23 17:20:12,010 [INFO]   📊 Pulados por já existirem: 20
+2026-03-23 17:20:16,017 [INFO]   📋 Criando solicitação: 01/09/2019 → 30/09/2019 (tentativa 1)
+2026-03-23 17:20:33,267 [INFO]   ⏭️ Já existe pedido para 01/09/2019 → 30/09/2019 — pulando.
+2026-03-23 17:20:33,268 [INFO]   📊 Pulados por já existirem: 21
+2026-03-23 17:20:37,278 [INFO]   📋 Criando solicitação: 01/10/2019 → 31/10/2019 (tentativa 1)
+2026-03-23 17:20:46,154 [ERROR] 🔴 Chrome foi fechado ou perdeu conexão!
