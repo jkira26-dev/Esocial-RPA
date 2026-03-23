@@ -396,8 +396,10 @@ class App(Tk):
                    command=self._inserir_empresa).pack(side="left")
         ttk.Button(row_btn, text="Remover selecionado",
                    command=self._remover_empresa).pack(side="left", padx=6)
+        ttk.Button(row_btn, text="Mover para Downloads",
+                   command=self._mover_selecionado_para_dl).pack(side="left")
         ttk.Button(row_btn, text="Limpar fila",
-                   command=self._limpar_fila).pack(side="left")
+                   command=self._limpar_fila).pack(side="left", padx=6)
 
         # ── Melhoria #1: painel de resumo ────────────────────────────────────
         self.card_resumo = Frame(esq, bg=COR_BG_CARD,
@@ -838,6 +840,36 @@ class App(Tk):
             self.fila.pop(idx)
             salvar_fila(self.fila)
             self._atualizar_grid()
+
+    def _mover_selecionado_para_dl(self):
+        sel = self.tree.selection()
+        if not sel:
+            messagebox.showinfo("Seleção", "Selecione uma empresa na grade primeiro.")
+            return
+        idx = int(self.tree.item(sel[0])["values"][0]) - 1
+        empresa = self.fila[idx]
+        nome = empresa["nome"]
+        
+        if messagebox.askyesno("Confirmar Transferência", f"Deseja mover '{nome}' para a fila de downloads?"):
+            empresa_dl = {
+                "tipo": empresa.get("tipo", "proprio"),
+                "cnpj": empresa.get("cnpj", ""),
+                "nome": nome,
+                "inicio": empresa.get("inicio", ""),
+                "fim": empresa.get("fim", ""),
+                "fase": "fase2",
+                "status": STATUS_AGUARDANDO,
+                "inserido_em": datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            }
+            if not any(e.get("cnpj") == empresa_dl["cnpj"] for e in self.fila_dl):
+                self.fila_dl.append(empresa_dl)
+                salvar_fila_dl(self.fila_dl)
+                self._atualizar_grid_dl()
+            
+            self.fila.pop(idx)
+            salvar_fila(self.fila)
+            self._atualizar_grid()
+            self._log(f"  📥 Empresa '{nome}' movida manualmente para a aba de Downloads.", "ok")
 
     def _limpar_fila(self):
         if not self.fila:

@@ -74,3 +74,26 @@
 2026-03-23 17:20:33,268 [INFO]   📊 Pulados por já existirem: 21
 2026-03-23 17:20:37,278 [INFO]   📋 Criando solicitação: 01/10/2019 → 31/10/2019 (tentativa 1)
 2026-03-23 17:20:46,154 [ERROR] 🔴 Chrome foi fechado ou perdeu conexão!
+2026-03-23 17:34:29,876 [INFO] Conectando ao Chrome em http://localhost:9222 ...
+2026-03-23 17:34:30,223 [INFO] ✅ Conectado ao Chrome com sucesso!
+2026-03-23 17:34:30,232 [INFO] ✅ Aba do eSocial encontrada: https://www.esocial.gov.br/portal/Home/Inicial?tipoEmpregador=EMPREGADOR_GERAL
+2026-03-23 17:34:34,546 [INFO] ============================================================
+2026-03-23 17:34:34,546 [INFO]   FASE 2 — BAIXANDO XMLs DISPONÍVEIS
+2026-03-23 17:34:34,546 [INFO] ============================================================
+2026-03-23 17:34:34,547 [INFO] 📁 Pasta de destino: C:\esocial_xmls\78444304000135
+2026-03-23 17:34:34,547 [INFO]   🔄 Rodada 1 — consultando pendentes...
+2026-03-23 17:34:38,202 [INFO]   📊 Tabela expandida: 20 → 99 linhas
+2026-03-23 17:34:38,220 [INFO]   📋 Disponíveis: 84 | Já baixados: 0 | Pendentes: 84
+2026-03-23 17:34:38,220 [INFO]   ⬇️  Baixando 84 arquivo(s) nesta rodada...
+2026-03-23 17:34:38,220 [INFO]   ⬇️  Baixando idPedido=28105146 | Data Inicial: 01/03/2026 Data Final: 18/03/2026
+2026-03-23 17:34:39,094 [INFO]   ✅ Salvo: 28105146.zip
+2026-03-23 17:34:41,103 [INFO]   ⬇️  Baixando idPedido=28105078 | Data Inicial: 01/02/2026 Data Final: 28/02/2026
+2026-03-23 17:34:42,188 [INFO]   ✅ Salvo: 28105078.zip
+2026-03-23 17:34:44,196 [INFO]   ⬇️  Baixando idPedido=28105037 | Data Inicial: 01/01/2026 Data Final: 31/01/2026
+2026-03-23 17:34:45,131 [INFO]   ✅ Salvo: 28105037.zip
+2026-03-23 17:34:47,136 [INFO]   ⬇️  Baixando idPedido=28104980 | Data Inicial: 01/12/2025 Data Final: 31/12/2025
+2026-03-23 17:34:48,569 [INFO]   ✅ Salvo: 28104980.zip
+2026-03-23 17:34:50,580 [INFO]   ⬇️  Baixando idPedido=28085302 | Data Inicial: 01/11/2025 Data Final: 30/11/2025
+2026-03-23 17:34:52,359 [INFO]   ✅ Salvo: 28085302.zip
+2026-03-23 17:34:54,362 [INFO]   ⬇️  Baixando idPedido=28085298 | Data Inicial: 01/10/2025 Data Final: 31/10/2025
+2026-03-23 17:34:56,236 [INFO]   ✅ Salvo: 28085298.zip
