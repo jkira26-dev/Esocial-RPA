@@ -97,3 +97,169 @@
 2026-03-23 17:34:52,359 [INFO]   ✅ Salvo: 28085302.zip
 2026-03-23 17:34:54,362 [INFO]   ⬇️  Baixando idPedido=28085298 | Data Inicial: 01/10/2025 Data Final: 31/10/2025
 2026-03-23 17:34:56,236 [INFO]   ✅ Salvo: 28085298.zip
+2026-03-23 17:34:58,262 [INFO]   ⬇️  Baixando idPedido=28085294 | Data Inicial: 01/09/2025 Data Final: 30/09/2025
+2026-03-23 17:35:00,136 [INFO]   ✅ Salvo: 28085294.zip
+2026-03-23 17:35:02,141 [INFO]   ⬇️  Baixando idPedido=28085286 | Data Inicial: 01/08/2025 Data Final: 31/08/2025
+2026-03-23 17:35:04,187 [INFO]   ✅ Salvo: 28085286.zip
+2026-03-23 17:35:06,191 [INFO]   ⬇️  Baixando idPedido=28085254 | Data Inicial: 01/07/2025 Data Final: 31/07/2025
+2026-03-23 17:35:08,109 [INFO]   ✅ Salvo: 28085254.zip
+2026-03-23 17:35:10,123 [INFO]   ⬇️  Baixando idPedido=28085215 | Data Inicial: 01/06/2025 Data Final: 30/06/2025
+2026-03-23 17:35:12,027 [INFO]   ✅ Salvo: 28085215.zip
+2026-03-23 17:35:14,039 [INFO]   ⬇️  Baixando idPedido=28085197 | Data Inicial: 01/05/2025 Data Final: 31/05/2025
+2026-03-23 17:35:16,316 [INFO]   ✅ Salvo: 28085197.zip
+2026-03-23 17:35:18,319 [INFO]   ⬇️  Baixando idPedido=28085190 | Data Inicial: 01/04/2025 Data Final: 30/04/2025
+2026-03-23 17:35:20,824 [INFO]   ✅ Salvo: 28085190.zip
+2026-03-23 17:35:22,825 [INFO]   ⬇️  Baixando idPedido=28085183 | Data Inicial: 01/03/2025 Data Final: 31/03/2025
+2026-03-23 17:35:25,856 [INFO]   ✅ Salvo: 28085183.zip
+2026-03-23 17:35:27,867 [INFO]   ⬇️  Baixando idPedido=28085156 | Data Inicial: 01/02/2025 Data Final: 28/02/2025
+2026-03-23 17:35:33,527 [INFO]   ✅ Salvo: 28085156.zip
+2026-03-23 17:35:35,537 [INFO]   ⬇️  Baixando idPedido=28085134 | Data Inicial: 01/01/2025 Data Final: 31/01/2025
+2026-03-23 17:35:38,684 [INFO]   ✅ Salvo: 28085134.zip
+2026-03-23 17:35:40,695 [INFO]   ⬇️  Baixando idPedido=28085127 | Data Inicial: 01/12/2024 Data Final: 31/12/2024
+2026-03-23 17:35:43,279 [INFO]   ✅ Salvo: 28085127.zip
+2026-03-23 17:35:45,288 [INFO]   ⬇️  Baixando idPedido=28085121 | Data Inicial: 01/11/2024 Data Final: 30/11/2024
+2026-03-23 17:35:50,006 [INFO]   ✅ Salvo: 28085121.zip
+2026-03-23 17:35:52,021 [INFO]   ⬇️  Baixando idPedido=28085102 | Data Inicial: 01/10/2024 Data Final: 31/10/2024
+2026-03-23 17:35:54,905 [INFO]   ✅ Salvo: 28085102.zip
+2026-03-23 17:35:56,917 [INFO]   ⬇️  Baixando idPedido=28085066 | Data Inicial: 01/09/2024 Data Final: 30/09/2024
+2026-03-23 17:35:59,651 [INFO]   ✅ Salvo: 28085066.zip
+2026-03-23 17:36:01,663 [INFO]   ⬇️  Baixando idPedido=28084999 | Data Inicial: 01/08/2024 Data Final: 31/08/2024
+2026-03-23 17:36:04,609 [INFO]   ✅ Salvo: 28084999.zip
+2026-03-23 17:36:06,623 [INFO]   ⬇️  Baixando idPedido=28084949 | Data Inicial: 01/07/2024 Data Final: 31/07/2024
+2026-03-23 17:36:09,275 [INFO]   ✅ Salvo: 28084949.zip
+2026-03-23 17:36:11,282 [INFO]   ⬇️  Baixando idPedido=28084914 | Data Inicial: 01/06/2024 Data Final: 30/06/2024
+2026-03-23 17:36:14,126 [INFO]   ✅ Salvo: 28084914.zip
+2026-03-23 17:36:16,137 [INFO]   ⬇️  Baixando idPedido=28084855 | Data Inicial: 01/05/2024 Data Final: 31/05/2024
+2026-03-23 17:36:19,691 [INFO]   ✅ Salvo: 28084855.zip
+2026-03-23 17:36:21,698 [INFO]   ⬇️  Baixando idPedido=28084785 | Data Inicial: 01/04/2024 Data Final: 30/04/2024
+2026-03-23 17:36:25,606 [INFO]   ✅ Salvo: 28084785.zip
+2026-03-23 17:36:27,621 [INFO]   ⬇️  Baixando idPedido=28084728 | Data Inicial: 01/03/2024 Data Final: 31/03/2024
+2026-03-23 17:36:30,982 [INFO]   ✅ Salvo: 28084728.zip
+2026-03-23 17:36:32,988 [INFO]   ⬇️  Baixando idPedido=28084633 | Data Inicial: 01/02/2024 Data Final: 29/02/2024
+2026-03-23 17:36:37,476 [INFO]   ✅ Salvo: 28084633.zip
+2026-03-23 17:36:39,484 [INFO]   ⬇️  Baixando idPedido=28084569 | Data Inicial: 01/01/2024 Data Final: 31/01/2024
+2026-03-23 17:36:44,788 [INFO]   ✅ Salvo: 28084569.zip
+2026-03-23 17:36:46,797 [INFO]   ⬇️  Baixando idPedido=28084535 | Data Inicial: 01/12/2023 Data Final: 31/12/2023
+2026-03-23 17:36:51,054 [INFO]   ✅ Salvo: 28084535.zip
+2026-03-23 17:36:53,056 [INFO]   ⬇️  Baixando idPedido=28084501 | Data Inicial: 01/11/2023 Data Final: 30/11/2023
+2026-03-23 17:36:57,014 [INFO]   ✅ Salvo: 28084501.zip
+2026-03-23 17:36:59,018 [INFO]   ⬇️  Baixando idPedido=28084460 | Data Inicial: 01/10/2023 Data Final: 31/10/2023
+2026-03-23 17:37:02,895 [INFO]   ✅ Salvo: 28084460.zip
+2026-03-23 17:37:04,902 [INFO]   ⬇️  Baixando idPedido=28084425 | Data Inicial: 01/09/2023 Data Final: 30/09/2023
+2026-03-23 17:37:08,989 [INFO]   ✅ Salvo: 28084425.zip
+2026-03-23 17:37:10,992 [INFO]   ⬇️  Baixando idPedido=28084372 | Data Inicial: 01/08/2023 Data Final: 31/08/2023
+2026-03-23 17:37:15,689 [INFO]   ✅ Salvo: 28084372.zip
+2026-03-23 17:37:17,695 [INFO]   ⬇️  Baixando idPedido=28084357 | Data Inicial: 01/07/2023 Data Final: 31/07/2023
+2026-03-23 17:37:21,919 [INFO]   ✅ Salvo: 28084357.zip
+2026-03-23 17:37:23,933 [INFO]   ⬇️  Baixando idPedido=28084334 | Data Inicial: 01/06/2023 Data Final: 30/06/2023
+2026-03-23 17:37:29,252 [INFO]   ✅ Salvo: 28084334.zip
+2026-03-23 17:37:31,255 [INFO]   ⬇️  Baixando idPedido=28084299 | Data Inicial: 01/05/2023 Data Final: 31/05/2023
+2026-03-23 17:37:35,735 [INFO]   ✅ Salvo: 28084299.zip
+2026-03-23 17:37:37,744 [INFO]   ⬇️  Baixando idPedido=28084290 | Data Inicial: 01/04/2023 Data Final: 30/04/2023
+2026-03-23 17:37:42,513 [INFO]   ✅ Salvo: 28084290.zip
+2026-03-23 17:37:44,524 [INFO]   ⬇️  Baixando idPedido=28084263 | Data Inicial: 01/03/2023 Data Final: 31/03/2023
+2026-03-23 17:37:49,774 [INFO]   ✅ Salvo: 28084263.zip
+2026-03-23 17:37:51,788 [INFO]   ⬇️  Baixando idPedido=28084229 | Data Inicial: 01/02/2023 Data Final: 28/02/2023
+2026-03-23 17:37:56,157 [INFO]   ✅ Salvo: 28084229.zip
+2026-03-23 17:37:58,173 [INFO]   ⬇️  Baixando idPedido=28084174 | Data Inicial: 01/01/2023 Data Final: 31/01/2023
+2026-03-23 17:38:03,115 [INFO]   ✅ Salvo: 28084174.zip
+2026-03-23 17:38:05,130 [INFO]   ⬇️  Baixando idPedido=28084156 | Data Inicial: 01/12/2022 Data Final: 31/12/2022
+2026-03-23 17:38:10,563 [INFO]   ✅ Salvo: 28084156.zip
+2026-03-23 17:38:12,569 [INFO]   ⬇️  Baixando idPedido=28084150 | Data Inicial: 01/11/2022 Data Final: 30/11/2022
+2026-03-23 17:38:17,319 [INFO]   ✅ Salvo: 28084150.zip
+2026-03-23 17:38:19,323 [INFO]   ⬇️  Baixando idPedido=28084139 | Data Inicial: 01/10/2022 Data Final: 31/10/2022
+2026-03-23 17:38:24,251 [INFO]   ✅ Salvo: 28084139.zip
+2026-03-23 17:38:26,259 [INFO]   ⬇️  Baixando idPedido=28084112 | Data Inicial: 01/09/2022 Data Final: 30/09/2022
+2026-03-23 17:38:31,080 [INFO]   ✅ Salvo: 28084112.zip
+2026-03-23 17:38:33,084 [INFO]   ⬇️  Baixando idPedido=28084087 | Data Inicial: 01/08/2022 Data Final: 31/08/2022
+2026-03-23 17:38:39,061 [INFO]   ✅ Salvo: 28084087.zip
+2026-03-23 17:38:41,065 [INFO]   ⬇️  Baixando idPedido=28084058 | Data Inicial: 01/07/2022 Data Final: 31/07/2022
+2026-03-23 17:38:47,144 [INFO]   ✅ Salvo: 28084058.zip
+2026-03-23 17:38:49,148 [INFO]   ⬇️  Baixando idPedido=28084035 | Data Inicial: 01/06/2022 Data Final: 30/06/2022
+2026-03-23 17:38:55,017 [INFO]   ✅ Salvo: 28084035.zip
+2026-03-23 17:38:57,033 [INFO]   ⬇️  Baixando idPedido=28084025 | Data Inicial: 01/05/2022 Data Final: 31/05/2022
+2026-03-23 17:39:02,410 [INFO]   ✅ Salvo: 28084025.zip
+2026-03-23 17:39:04,422 [INFO]   ⬇️  Baixando idPedido=28084017 | Data Inicial: 01/04/2022 Data Final: 30/04/2022
+2026-03-23 17:39:11,296 [INFO]   ✅ Salvo: 28084017.zip
+2026-03-23 17:39:13,306 [INFO]   ⬇️  Baixando idPedido=28084011 | Data Inicial: 01/03/2022 Data Final: 31/03/2022
+2026-03-23 17:39:19,555 [INFO]   ✅ Salvo: 28084011.zip
+2026-03-23 17:39:21,569 [INFO]   ⬇️  Baixando idPedido=28084003 | Data Inicial: 01/02/2022 Data Final: 28/02/2022
+2026-03-23 17:39:27,717 [INFO]   ✅ Salvo: 28084003.zip
+2026-03-23 17:39:29,734 [INFO]   ⬇️  Baixando idPedido=28083996 | Data Inicial: 01/01/2022 Data Final: 31/01/2022
+2026-03-23 17:39:35,074 [INFO]   ✅ Salvo: 28083996.zip
+2026-03-23 17:39:37,078 [INFO]   ⬇️  Baixando idPedido=28083978 | Data Inicial: 01/12/2021 Data Final: 31/12/2021
+2026-03-23 17:39:43,607 [INFO]   ✅ Salvo: 28083978.zip
+2026-03-23 17:39:45,615 [INFO]   ⬇️  Baixando idPedido=28083971 | Data Inicial: 01/11/2021 Data Final: 30/11/2021
+2026-03-23 17:39:53,326 [INFO]   ✅ Salvo: 28083971.zip
+2026-03-23 17:39:55,328 [INFO]   ⬇️  Baixando idPedido=28083963 | Data Inicial: 01/10/2021 Data Final: 31/10/2021
+2026-03-23 17:40:01,715 [INFO]   ✅ Salvo: 28083963.zip
+2026-03-23 17:40:03,725 [INFO]   ⬇️  Baixando idPedido=28083956 | Data Inicial: 01/09/2021 Data Final: 30/09/2021
+2026-03-23 17:40:10,568 [INFO]   ✅ Salvo: 28083956.zip
+2026-03-23 17:40:12,577 [INFO]   ⬇️  Baixando idPedido=28083942 | Data Inicial: 01/08/2021 Data Final: 31/08/2021
+2026-03-23 17:40:20,329 [INFO]   ✅ Salvo: 28083942.zip
+2026-03-23 17:40:22,340 [INFO]   ⬇️  Baixando idPedido=28083921 | Data Inicial: 01/07/2021 Data Final: 31/07/2021
+2026-03-23 17:40:30,513 [INFO]   ✅ Salvo: 28083921.zip
+2026-03-23 17:40:32,515 [INFO]   ⬇️  Baixando idPedido=28083897 | Data Inicial: 01/06/2021 Data Final: 30/06/2021
+2026-03-23 17:40:41,359 [INFO]   ✅ Salvo: 28083897.zip
+2026-03-23 17:40:43,367 [INFO]   ⬇️  Baixando idPedido=28083872 | Data Inicial: 01/05/2021 Data Final: 31/05/2021
+2026-03-23 17:40:50,385 [INFO]   ✅ Salvo: 28083872.zip
+2026-03-23 17:40:52,398 [INFO]   ⬇️  Baixando idPedido=28083856 | Data Inicial: 01/04/2021 Data Final: 30/04/2021
+2026-03-23 17:40:59,018 [INFO]   ✅ Salvo: 28083856.zip
+2026-03-23 17:41:01,023 [INFO]   ⬇️  Baixando idPedido=28083845 | Data Inicial: 01/03/2021 Data Final: 31/03/2021
+2026-03-23 17:41:09,528 [INFO]   ✅ Salvo: 28083845.zip
+2026-03-23 17:41:11,538 [INFO]   ⬇️  Baixando idPedido=28083748 | Data Inicial: 01/10/2020 Data Final: 31/10/2020
+2026-03-23 17:41:17,921 [INFO]   ✅ Salvo: 28083748.zip
+2026-03-23 17:41:19,926 [INFO]   ⬇️  Baixando idPedido=28083726 | Data Inicial: 01/09/2020 Data Final: 30/09/2020
+2026-03-23 17:41:26,310 [INFO]   ✅ Salvo: 28083726.zip
+2026-03-23 17:41:28,327 [INFO]   ⬇️  Baixando idPedido=28083709 | Data Inicial: 01/08/2020 Data Final: 31/08/2020
+2026-03-23 17:41:35,669 [INFO]   ✅ Salvo: 28083709.zip
+2026-03-23 17:41:37,681 [INFO]   ⬇️  Baixando idPedido=28083692 | Data Inicial: 01/07/2020 Data Final: 31/07/2020
+2026-03-23 17:41:45,089 [INFO]   ✅ Salvo: 28083692.zip
+2026-03-23 17:41:47,097 [INFO]   ⬇️  Baixando idPedido=28083659 | Data Inicial: 01/06/2020 Data Final: 30/06/2020
+2026-03-23 17:41:54,448 [INFO]   ✅ Salvo: 28083659.zip
+2026-03-23 17:41:56,455 [INFO]   ⬇️  Baixando idPedido=28083630 | Data Inicial: 01/05/2020 Data Final: 31/05/2020
+2026-03-23 17:42:03,880 [INFO]   ✅ Salvo: 28083630.zip
+2026-03-23 17:42:05,882 [INFO]   ⬇️  Baixando idPedido=28083605 | Data Inicial: 01/04/2020 Data Final: 30/04/2020
+2026-03-23 17:42:13,243 [INFO]   ✅ Salvo: 28083605.zip
+2026-03-23 17:42:15,257 [INFO]   ⬇️  Baixando idPedido=28083581 | Data Inicial: 01/03/2020 Data Final: 31/03/2020
+2026-03-23 17:42:22,781 [INFO]   ✅ Salvo: 28083581.zip
+2026-03-23 17:42:24,793 [INFO]   ⬇️  Baixando idPedido=28083549 | Data Inicial: 01/02/2020 Data Final: 29/02/2020
+2026-03-23 17:42:32,253 [INFO]   ✅ Salvo: 28083549.zip
+2026-03-23 17:42:34,255 [INFO]   ⬇️  Baixando idPedido=28083539 | Data Inicial: 01/01/2020 Data Final: 31/01/2020
+2026-03-23 17:42:41,689 [INFO]   ✅ Salvo: 28083539.zip
+2026-03-23 17:42:43,699 [INFO]   ⬇️  Baixando idPedido=28083536 | Data Inicial: 01/12/2019 Data Final: 31/12/2019
+2026-03-23 17:42:51,817 [INFO]   ✅ Salvo: 28083536.zip
+2026-03-23 17:42:53,821 [INFO]   ⬇️  Baixando idPedido=28083530 | Data Inicial: 01/11/2019 Data Final: 30/11/2019
+2026-03-23 17:43:01,215 [INFO]   ✅ Salvo: 28083530.zip
+2026-03-23 17:43:03,221 [INFO]   ⬇️  Baixando idPedido=28083526 | Data Inicial: 01/10/2019 Data Final: 31/10/2019
+2026-03-23 17:43:11,670 [INFO]   ✅ Salvo: 28083526.zip
+2026-03-23 17:43:13,674 [INFO]   ⬇️  Baixando idPedido=28083521 | Data Inicial: 01/09/2019 Data Final: 30/09/2019
+2026-03-23 17:43:23,018 [INFO]   ✅ Salvo: 28083521.zip
+2026-03-23 17:43:25,025 [INFO]   ⬇️  Baixando idPedido=28083513 | Data Inicial: 01/08/2019 Data Final: 31/08/2019
+2026-03-23 17:43:33,419 [INFO]   ✅ Salvo: 28083513.zip
+2026-03-23 17:43:35,431 [INFO]   ⬇️  Baixando idPedido=28083508 | Data Inicial: 01/07/2019 Data Final: 31/07/2019
+2026-03-23 17:43:46,747 [INFO]   ✅ Salvo: 28083508.zip
+2026-03-23 17:43:48,756 [INFO]   ⬇️  Baixando idPedido=28083499 | Data Inicial: 01/06/2019 Data Final: 30/06/2019
+2026-03-23 17:43:58,328 [INFO]   ✅ Salvo: 28083499.zip
+2026-03-23 17:44:00,340 [INFO]   ⬇️  Baixando idPedido=28083487 | Data Inicial: 01/05/2019 Data Final: 31/05/2019
+2026-03-23 17:44:08,883 [INFO]   ✅ Salvo: 28083487.zip
+2026-03-23 17:44:10,895 [INFO]   ⬇️  Baixando idPedido=28083477 | Data Inicial: 01/04/2019 Data Final: 30/04/2019
+2026-03-23 17:44:19,582 [INFO]   ✅ Salvo: 28083477.zip
+2026-03-23 17:44:21,585 [INFO]   ⬇️  Baixando idPedido=28083466 | Data Inicial: 01/03/2019 Data Final: 31/03/2019
+2026-03-23 17:44:29,971 [INFO]   ✅ Salvo: 28083466.zip
+2026-03-23 17:44:31,986 [INFO]   ⬇️  Baixando idPedido=28083464 | Data Inicial: 01/02/2019 Data Final: 28/02/2019
+2026-03-23 17:44:41,046 [INFO]   ✅ Salvo: 28083464.zip
+2026-03-23 17:44:43,062 [INFO]   ⬇️  Baixando idPedido=28083458 | Data Inicial: 01/01/2019 Data Final: 31/01/2019
+2026-03-23 17:44:51,803 [INFO]   ✅ Salvo: 28083458.zip
+2026-03-23 17:44:53,818 [INFO]   ⬇️  Baixando idPedido=28083413 | Data Inicial: 01/08/2018 Data Final: 31/08/2018
+2026-03-23 17:45:03,743 [INFO]   ✅ Salvo: 28083413.zip
+2026-03-23 17:45:05,750 [INFO]   🔄 Rodada 2 — consultando pendentes...
+2026-03-23 17:45:27,583 [INFO]   📊 Tabela expandida: 20 → 99 linhas
+2026-03-23 17:45:27,603 [INFO]   📋 Disponíveis: 84 | Já baixados: 84 | Pendentes: 0
+2026-03-23 17:45:27,604 [INFO]   ✅ Todos os arquivos baixados após 1 rodada(s).
+2026-03-23 17:45:27,604 [INFO] 
+✅ Fase 2 concluída.
+2026-03-23 17:45:27,604 [INFO]    Baixados nesta sessão : 84
+2026-03-23 17:45:27,605 [INFO]    Erros                 : 0
+2026-03-23 17:45:27,605 [INFO]    Total no progresso    : 84
+2026-03-23 17:45:27,607 [INFO] 📄 Relatório salvo em: C:\Users\SuporteBemapi\Downloads\esocial_rpa_v31\esocial_rpa_v19_work\esocial_rpa\relatorio_20260323_173430.txt

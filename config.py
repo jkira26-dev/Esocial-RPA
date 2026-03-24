@@ -17,13 +17,12 @@ DATA_LIMITE_FALLBACK = "16/03/2026"
 # Use caminho absoluto. Exemplo: r"C:\Users\jose\Downloads\esocial_xmls"
 PASTA_DOWNLOAD = r"C:\esocial_xmls"
 
-# --- CHROME ---
-# Porta para conexão com Chrome já aberto
-# (não precisa alterar, a menos que a porta esteja em uso)
-CHROME_DEBUG_PORT = 9222
+# --- BROWSER (Playwright) ---
+# Se True, o robô tenta minimizar/ocultar a janela após o login bem-sucedido
+BROWSER_HIDE_AFTER_LOGIN = True
 
-# URL base do Chrome debugger
-CHROME_DEBUG_URL = f"http://localhost:{CHROME_DEBUG_PORT}"
+# Se True, o robô roda em segundo plano desde o início (não recomendado para o eSocial)
+BROWSER_HEADLESS = False
 
 # --- COMPORTAMENTO ---
 # Tempo de espera entre cada solicitação (segundos)

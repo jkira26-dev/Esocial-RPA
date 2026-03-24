@@ -20,6 +20,14 @@ from pathlib import Path
 
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
 
+# Importa funções win32 para ocultar a janela (opcional)
+try:
+    import win32gui
+    import win32con
+    HAS_WIN32 = True
+except ImportError:
+    HAS_WIN32 = False
+
 # Importa configurações
 sys.path.insert(0, str(Path(__file__).parent))
 import config
@@ -175,88 +183,83 @@ def gerar_meses(data_inicio_str: str, data_limite_str: str):
     return meses
 
 
-# ─── Conexão com Chrome ──────────────────────────────────────────────────────
+# ─── Gerenciamento de Browser (Playwright) ───────────────────────────────────
 
-async def conectar_chrome(playwright, silencioso: bool = False):
+async def iniciar_browser_rpa(playwright):
     """
-    Conecta ao Chrome já aberto com certificado digital.
-    O usuário precisa ter iniciado o Chrome com --remote-debugging-port=9222
+    Lança o browser Chromium diretamente (headed) para o usuário logar.
+    Não depende mais de Chrome externo na porta 9222.
     """
-    if not silencioso:
-        log.info(f"Conectando ao Chrome em {config.CHROME_DEBUG_URL} ...")
-    try:
-        browser = await playwright.chromium.connect_over_cdp(config.CHROME_DEBUG_URL)
-        log.info("✅ Conectado ao Chrome com sucesso!")
-        return browser
-    except Exception as e:
-        log.error(f"❌ Falha ao conectar no Chrome: {e}")
-        log.error('  Execute: 2_ABRIR_CHROME.bat e faça login no eSocial.')
-        raise
+    log.info("🚀 Iniciando browser para acesso ao eSocial...")
+    
+    # Busca o executável do Chromium se estiver em um ambiente empacotado
+    executable_path = getattr(config, 'BROWSER_EXECUTABLE_PATH', None)
+    
+    browser = await playwright.chromium.launch(
+        headless=config.BROWSER_HEADLESS,
+        executable_path=executable_path,
+        args=["--start-maximized"]
+    )
+    
+    # Cria um contexto com viewport grande
+    context = await browser.new_context(no_viewport=True)
+    page = await context.new_page()
+    
+    log.info("🌐 Abrindo portal do eSocial...")
+    await page.goto("https://login.esocial.gov.br/", timeout=config.TIMEOUT_PAGINA)
+    
+    return browser, page
 
 
-async def obter_aba_esocial(browser):
-    """Retorna a aba do eSocial já aberta ou abre uma nova."""
-    contextos = browser.contexts
-    if not contextos:
-        raise RuntimeError("browser_fechado")
-
-    context = contextos[0]
-    paginas = context.pages
-
-    # Verifica se as páginas existentes ainda estão vivas
-    for page in paginas:
-        try:
-            if "esocial.gov.br" in page.url:
-                # Testa se a página realmente responde
-                await page.evaluate("1+1")
-                log.info(f"✅ Aba do eSocial encontrada: {page.url}")
-                return page
-        except Exception:
-            continue  # Página fechada/morta, tenta a próxima
-
-    # Nenhuma aba válida — abre uma nova
-    log.info("Nenhuma aba ativa do eSocial. Abrindo nova aba...")
-    try:
-        page = await context.new_page()
-        await page.goto(
-            "https://www.esocial.gov.br/portal/Home/Inicial",
-            timeout=config.TIMEOUT_PAGINA,
-            wait_until="domcontentloaded",
-        )
-        return page
-    except Exception:
-        raise RuntimeError("browser_fechado")
-
-
-async def aguardar_reconexao(playwright) -> tuple:
+async def aguardar_login_usuario(page):
     """
-    Detectou que o Chrome foi fechado.
-    Pausa e aguarda o usuário reabrir o Chrome e fazer login.
-    Retorna (browser, page) após reconexão bem-sucedida.
+    Monitora a página até detectar que o usuário concluiu o login.
+    Detecta pela presença do menu principal ou URL de Home.
     """
-    log.error("🔴 Chrome foi fechado ou perdeu conexão!")
-    print()
-    print("  ╔══════════════════════════════════════════════════════╗")
-    print("  ║  ⚠️  CHROME FECHADO — AÇÃO NECESSÁRIA               ║")
-    print("  ╠══════════════════════════════════════════════════════╣")
-    print("  ║  1. Execute novamente:  2_ABRIR_CHROME.bat           ║")
-    print("  ║  2. Faça login no eSocial com o certificado          ║")
-    print("  ║  3. Aguarde a tela inicial do eSocial carregar       ║")
-    print("  ║  4. Volte aqui e pressione ENTER                     ║")
-    print("  ╚══════════════════════════════════════════════════════╝")
-    print()
-
+    log.info("⏳ Aguardando login manual do usuário (gov.br / Certificado)...")
+    
     while True:
-        input("  Pressione ENTER após fazer o login no eSocial...")
         try:
-            browser = await conectar_chrome(playwright, silencioso=True)
-            page = await obter_aba_esocial(browser)
-            log.info("✅ Reconexão bem-sucedida! Retomando execução...")
-            return browser, page
-        except Exception as e:
-            print(f"  ❌ Ainda não foi possível conectar: {e}")
-            print("  Certifique-se de ter aberto o Chrome com 2_ABRIR_CHROME.bat")
-            print()
+            url = page.url.lower()
+            # Se chegou na Home do portal, login ok
+            if "/portal/home" in url:
+                log.info("✅ Login detectado com sucesso!")
+                return True
+            
+            # Alternativa: busca por elemento que só existe logado
+            # (evita ficar preso se a URL demorar a mudar mas o DOM já estiver lá)
+            if await page.query_selector(".menu-horizontal"):
+                log.info("✅ Menu detectado! Login confirmado.")
+                return True
+                
+        except Exception:
+            # Browser pode ter sido fechado ou erro de comunicação temporário
+            pass
+            
+        await asyncio.sleep(2)
+
+
+def ocultar_janela_browser(page):
+    """
+    Usa Win32 para minimizar ou ocultar a janela do Chromium após o login.
+    """
+    if not HAS_WIN32 or not config.BROWSER_HIDE_AFTER_LOGIN:
+        return
+
+    log.info("🎭 Ocultando janela do browser para execução em segundo plano...")
+    try:
+        # Tenta encontrar a janela pelo título (que o Playwright/Chromium define)
+        # O título padrão do eSocial logado costuma conter "eSocial"
+        def callback(hwnd, extra):
+            title = win32gui.GetWindowText(hwnd)
+            if "eSocial" in title or "Chromium" in title:
+                # Minimiza a janela
+                win32gui.ShowWindow(hwnd, win32con.SW_MINIMIZE)
+                # Opcional: SW_HIDE para sumir totalmente (mas SW_MINIMIZE é mais seguro)
+        
+        win32gui.EnumWindows(callback, None)
+    except Exception as e:
+        log.warning(f"⚠️ Não foi possível ocultar a janela: {e}")
 
 
 
@@ -513,7 +516,7 @@ async def fase1_criar_solicitacoes(page, progresso: dict, stats: SessionStats,
         log.info(f"Período selecionado: {data_inicio_fase} até {data_limite} ({len(todos_meses)} meses)")
 
         ja_solicitados = set(progresso.get("solicitacoes_criadas", []))
-        pendentes = [(i, d) for d in todos_meses if (i := f"{d[0]}_{d[1]}") not in ja_solicitados]
+        pendentes = [(f"{d[0]}_{d[1]}", d) for d in todos_meses if f"{d[0]}_{d[1]}" not in ja_solicitados]
 
         log.info(f"Já solicitados anteriormente: {len(ja_solicitados)}")
         log.info(f"Pendentes nesta execução: {len(pendentes)}")
@@ -559,15 +562,27 @@ async def fase1_criar_solicitacoes(page, progresso: dict, stats: SessionStats,
                     err = str(e).lower()
                     if "browser_fechado" in err:
                         if playwright:
-                            _, page = await aguardar_reconexao(playwright)
+                            # Reinicia o fluxo de login
+                            browser, page = await iniciar_browser_rpa(playwright)
+                            await aguardar_login_usuario(page)
+                            ocultar_janela_browser(page)
                             stats.f1_sessoes_expiradas += 1
                         else:
-                            log.error("🔴 Chrome fechado e sem referência ao playwright para reconectar.")
+                            log.error("🔴 Browser fechado e sem referência ao playwright para reconectar.")
                         resultado = "falha"
                         break
                     elif "expirada" in err:
                         log.error("🔴 Sessão expirada! Aguardando novo login...")
-                        input("  Faça o login no eSocial e pressione ENTER para continuar...")
+                        # Tenta re-exibir a janela se estiver oculta
+                        if HAS_WIN32:
+                            def show_win(hwnd, extra):
+                                if "eSocial" in win32gui.GetWindowText(hwnd):
+                                    win32gui.ShowWindow(hwnd, win32con.SW_SHOW)
+                                    win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+                            win32gui.EnumWindows(show_win, None)
+
+                        await aguardar_login_usuario(page)
+                        ocultar_janela_browser(page)
                         erros_consecutivos = 0
                         stats.f1_sessoes_expiradas += 1
                         resultado = "falha"
@@ -1135,17 +1150,9 @@ def ver_progresso():
 
 async def main():
     # Instrução de inicialização
-    print("\n" + "=" * 60)
-    print("  PRÉ-REQUISITO: Chrome deve estar aberto com debugger.")
-    print("  Execute este comando antes:")
-    print()
-    print('  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"')
-    print('  --remote-debugging-port=9222')
-    print('  --user-data-dir="C:\\chrome_esocial"')
-    print()
-    print("  Em seguida, faça login no eSocial com o certificado.")
-    print("=" * 60)
-    input("  Pressione ENTER quando estiver pronto...")
+    log.info("🚀 Iniciando eSocial RPA...")
+    
+    opcao = exibir_menu()
 
     opcao = exibir_menu()
 
@@ -1175,10 +1182,17 @@ async def main():
 
     try:
         async with async_playwright() as playwright:
-            browser = await conectar_chrome(playwright)
-            page = await obter_aba_esocial(browser)
+            browser, page = await iniciar_browser_rpa(playwright)
+            
+            # Aguarda o login antes de qualquer fase
+            if not await aguardar_login_usuario(page):
+                log.error("❌ Login não realizado. Encerrando.")
+                return
+
+            ocultar_janela_browser(page)
 
             try:
+                # Contexto default timeout
                 context = browser.contexts[0]
                 await context.set_default_timeout(config.TIMEOUT_PAGINA)
             except:

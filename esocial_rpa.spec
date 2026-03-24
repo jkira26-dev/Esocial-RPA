@@ -22,6 +22,8 @@ a = Analysis(
         'plyer',
         'plyer.platforms.win.notification',
         'win10toast',
+        'win32gui',
+        'win32con',
         'asyncio',
         'json',
         'queue',

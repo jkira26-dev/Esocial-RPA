@@ -114,12 +114,8 @@ def salvar_fila_dl(fila: list):
         json.dump(fila, f, indent=2, ensure_ascii=False)
 
 def chrome_esta_aberto() -> bool:
-    try:
-        import urllib.request
-        urllib.request.urlopen(f"http://localhost:{CHROME_PORT}/json", timeout=2)
-        return True
-    except Exception:
-        return False
+    """Deprecado: agora o robô abre seu próprio browser."""
+    return True
 
 def notificar_windows(titulo: str, mensagem: str):
     """Notificação nativa do Windows. Tenta plyer → win10toast → silencioso."""
@@ -446,16 +442,11 @@ class App(Tk):
 
         cc = Frame(dir_, bg=COR_BG_CARD, highlightbackground="#c5cfe0", highlightthickness=1)
         cc.pack(fill="x", pady=(0, 8))
-        Label(cc, text="Conexão com Chrome", bg=COR_BG_CARD,
+        Label(cc, text="Acesso ao eSocial", bg=COR_BG_CARD,
               font=("Segoe UI", 9, "bold"), fg=COR_PRIMARY_DARK).pack(anchor="w", padx=12, pady=(8, 4))
         fc = Frame(cc, bg=COR_BG_CARD); fc.pack(fill="x", padx=12, pady=(0, 8))
-        self.lbl_chrome = Label(fc, text="● Não conectado", bg=COR_BG_CARD,
-                                font=("Segoe UI", 9), fg=COR_ERRO)
-        self.lbl_chrome.pack(side="left")
-        ttk.Button(fc, text="Abrir Chrome",
-                   command=self._abrir_chrome).pack(side="right")
-        ttk.Button(fc, text="Verificar",
-                   command=self._verificar_chrome).pack(side="right", padx=4)
+        Label(fc, text="O robô abrirá o portal automaticamente ao iniciar.", 
+              bg=COR_BG_CARD, font=("Segoe UI", 8), fg=COR_CINZA, wraplength=300, justify="left").pack(side="left")
 
         Label(dir_, text="Progresso geral", bg=COR_BG,
               font=("Segoe UI", 9, "bold"), fg=COR_PRIMARY_DARK).pack(anchor="w", pady=(0, 2))
@@ -570,16 +561,11 @@ class App(Tk):
 
         cc2 = Frame(dir_, bg=COR_BG_CARD, highlightbackground="#c5cfe0", highlightthickness=1)
         cc2.pack(fill="x", pady=(0, 8))
-        Label(cc2, text="Conexão com Chrome", bg=COR_BG_CARD,
+        Label(cc2, text="Acesso ao eSocial", bg=COR_BG_CARD,
               font=("Segoe UI", 9, "bold"), fg=COR_PRIMARY_DARK).pack(anchor="w", padx=12, pady=(8, 4))
         fc2 = Frame(cc2, bg=COR_BG_CARD); fc2.pack(fill="x", padx=12, pady=(0, 8))
-        self.lbl_chrome_dl = Label(fc2, text="● Não conectado", bg=COR_BG_CARD,
-                                   font=("Segoe UI", 9), fg=COR_ERRO)
-        self.lbl_chrome_dl.pack(side="left")
-        ttk.Button(fc2, text="Abrir Chrome",
-                   command=self._abrir_chrome).pack(side="right")
-        ttk.Button(fc2, text="Verificar",
-                   command=self._verificar_chrome_dl).pack(side="right", padx=4)
+        Label(fc2, text="O robô abrirá o portal automaticamente ao iniciar.", 
+              bg=COR_BG_CARD, font=("Segoe UI", 8), fg=COR_CINZA, wraplength=300, justify="left").pack(side="left")
 
         Label(dir_, text="Progresso", bg=COR_BG,
               font=("Segoe UI", 9, "bold"), fg=COR_PRIMARY_DARK).pack(anchor="w", pady=(0, 2))
@@ -933,15 +919,12 @@ class App(Tk):
     # ── Chrome ────────────────────────────────────────────────────────────────
 
     def _verificar_chrome(self):
-        ok = chrome_esta_aberto()
-        self.lbl_chrome.config(text="● Conectado" if ok else "● Não conectado",
-                               fg=COR_VERDE if ok else COR_ERRO)
-        self._status_bar("Chrome conectado." if ok else "Chrome não detectado.")
+        # Deprecado: agora o login é feito via robô
+        self._status_bar("O robô abrirá o portal ao iniciar.")
 
     def _verificar_chrome_dl(self):
-        ok = chrome_esta_aberto()
-        self.lbl_chrome_dl.config(text="● Conectado" if ok else "● Não conectado",
-                                  fg=COR_VERDE if ok else COR_ERRO)
+        # Deprecado
+        pass
 
     def _abrir_chrome(self):
         bat = Path(__file__).parent / "2_ABRIR_CHROME.bat"
@@ -982,7 +965,7 @@ class App(Tk):
     def _executar_auto_verif(self):
         if not self.auto_verif.get():
             return
-        if not chrome_esta_aberto():
+        if False: # Ignora check antigo
             self._log_dl("Auto-verificação: Chrome não está aberto — pulando.", "warn")
             self._agendar_auto_verif()
             return
@@ -1025,10 +1008,8 @@ class App(Tk):
         if not self.fila:
             messagebox.showinfo("Fila vazia", "Adicione pelo menos uma empresa antes de iniciar.")
             return
-        if not chrome_esta_aberto():
-            if messagebox.askyesno("Chrome não detectado", "Deseja abrir agora?"):
-                self._abrir_chrome()
-            return
+
+        # O robô agora abre seu próprio browser via esocial_rpa.py
 
         for emp in self.fila:
             if emp["status"] not in (STATUS_CONCLUIDO,):
@@ -1064,8 +1045,12 @@ class App(Tk):
 
         total = len(self.fila)
         async with async_playwright() as playwright:
-            browser = await rpa.conectar_chrome(playwright)
-            page    = await rpa.obter_aba_esocial(browser)
+            browser, page = await rpa.iniciar_browser_rpa(playwright)
+            self._log("⏳ Aguardando login manual...", "warn")
+            if not await rpa.aguardar_login_usuario(page):
+                self._log("❌ Login não realizado.", "error")
+                return
+            rpa.ocultar_janela_browser(page)
 
             for idx, empresa in enumerate(self.fila):
                 if not self.rodando:
@@ -1147,10 +1132,8 @@ class App(Tk):
         if not self.fila_dl:
             messagebox.showinfo("Fila vazia", "Adicione pelo menos uma empresa antes de iniciar.")
             return
-        if not chrome_esta_aberto():
-            if messagebox.askyesno("Chrome não detectado", "Deseja abrir agora?"):
-                self._abrir_chrome()
-            return
+
+        # O login será feito após o 'Iniciar'
 
         for emp in self.fila_dl:
             if emp["status"] not in (STATUS_CONCLUIDO,):
@@ -1188,8 +1171,12 @@ class App(Tk):
         n_baixados_total = 0
 
         async with async_playwright() as playwright:
-            browser = await rpa.conectar_chrome(playwright)
-            page    = await rpa.obter_aba_esocial(browser)
+            browser, page = await rpa.iniciar_browser_rpa(playwright)
+            self._log_dl("⏳ Aguardando login manual...", "warn")
+            if not await rpa.aguardar_login_usuario(page):
+                self._log_dl("❌ Login não realizado.", "error")
+                return
+            rpa.ocultar_janela_browser(page)
 
             for idx, empresa in enumerate(self.fila_dl):
                 if not self.rodando_dl:

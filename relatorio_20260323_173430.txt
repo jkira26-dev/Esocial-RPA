@@ -1,0 +1,34 @@
+==============================================================
+  eSocial RPA — RELATÓRIO DE EXECUÇÃO
+==============================================================
+  Gerado em  : 23/03/2026 17:45:27
+  Início     : 23/03/2026 17:34:30
+  Término    : 23/03/2026 17:45:27
+  Duração    : 00h 10m 57s
+  Operação   : fase2
+
+
+--------------------------------------------------------------
+  FASE 2 — DOWNLOADS
+--------------------------------------------------------------
+  Disponíveis no portal : 84
+  Baixados nesta sessão : 84
+  Já baixados (pulados) : 84
+  Erros de download     : 0
+  Pasta de destino      : C:\esocial_xmls
+
+--------------------------------------------------------------
+  SITUAÇÃO GERAL DO PROGRESSO
+--------------------------------------------------------------
+  Solicitações no progresso.json : 0
+  Downloads no progresso.json    : 0
+
+--------------------------------------------------------------
+  OBSERVAÇÕES E SUGESTÕES DE MELHORIA
+--------------------------------------------------------------
+  • Nenhuma pendência identificada. Execução concluída sem problemas.
+
+==============================================================
+  Arquivo de log detalhado: esocial_rpa.log
+  Progresso salvo em      : progresso.json
+==============================================================
